@@ -4,12 +4,16 @@
         sans-serif;
 }
 
+.header {
+    font-size: 2em;
+}
+
 #library {
     display: grid;
-    grid-template-columns: minmax(autofill, 100px);
-    grid-template-rows: auto;
+    gap: 1em;
 }
 
 .card {
-    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
