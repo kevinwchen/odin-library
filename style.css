@@ -4,16 +4,30 @@
         sans-serif;
 }
 
+body {
+    display: grid;
+    gap: 2em;
+}
+
 .header {
     font-size: 2em;
 }
 
 #library {
     display: grid;
-    gap: 1em;
+    gap: 0.5em;
 }
 
 .card {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
+}
+
+#newBook-form-container {
+    display: none;
+}
+
+.newBook-form {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }

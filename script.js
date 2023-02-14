@@ -1,6 +1,6 @@
 let myLibrary = [];
 
-function book(title, author, pages, read) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -10,17 +10,27 @@ function book(title, author, pages, read) {
     };
 }
 
-theHobbit = new book("The Hobbit", "J.R.R. Tolkien", "295", "read");
-briefHistory = new book(
+theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", "295", "read");
+briefHistory = new Book(
     "A Brief History of Time",
     "Stephen Hawking",
     "256",
     "read"
 );
-atomicHabits = new book("Atomic Habits", "James Clear", "320", "not read yet");
+atomicHabits = new Book("Atomic Habits", "James Clear", "320", "not read yet");
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
+myLibrary.push(theHobbit);
+myLibrary.push(briefHistory);
+myLibrary.push(atomicHabits);
+
+function addBookToLibrary() {
+    const title = document.getElementById("newBook-title").value;
+    const author = document.getElementById("newBook-author").value;
+    const pages = document.getElementById("newBook-pages").value;
+    const read = document.getElementById("newBook-read").value;
+    newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    document.getElementById("newBook-button").style.display = "block";
 }
 
 function displayBooks(div) {
@@ -40,9 +50,23 @@ function displayBooks(div) {
     }
 }
 
-const library = document.getElementById("library");
+function openBookForm() {
+    document.getElementById("newBook-button").style.display = "none";
+    document.getElementById("newBook-form-container").style.display = "block";
+    console.log("Book form opened");
+}
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(briefHistory);
-addBookToLibrary(atomicHabits);
+const library = document.getElementById("library");
+const addBookButton = document.querySelector(".addBook-button");
+const newBookForm = document.querySelector(".newBook-form");
+
+addBookButton.addEventListener("click", (event) => {
+    addBookToLibrary();
+    library.textContent = "";
+    displayBooks(library);
+    newBookForm.reset();
+    document.getElementById("newBook-form-container").style.display = "none";
+    event.preventDefault();
+});
+
 displayBooks(library);

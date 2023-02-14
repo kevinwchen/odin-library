@@ -13,5 +13,43 @@
         <div class="main">
             <div id="library"></div>
         </div>
+        <div id="newBook-button">
+            <button class="openBookForm" onclick="openBookForm()">
+                New Book
+            </button>
+        </div>
+        <div id="newBook-form-container">
+            <form class="newBook-form" action="submit">
+                <input
+                    type="text"
+                    name="newBook-title"
+                    id="newBook-title"
+                    placeholder="Title"
+                    required
+                />
+                <input
+                    type="text"
+                    name="newBook-author"
+                    id="newBook-author"
+                    placeholder="Author"
+                    required
+                />
+                <input
+                    type="number"
+                    name="newBook-pages"
+                    id="newBook-pages"
+                    placeholder="Pages"
+                    required
+                />
+                <input
+                    type="text"
+                    name="newBook-read"
+                    id="newBook-read"
+                    placeholder="Read Status"
+                    required
+                />
+                <button class="addBook-button">Add New Book</button>
+            </form>
+        </div>
     </body>
 </html>
