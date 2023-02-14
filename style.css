@@ -7,6 +7,7 @@
 body {
     display: grid;
     gap: 2em;
+    padding: 1rem;
 }
 
 .header {
@@ -19,8 +20,13 @@ body {
 
 .card {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 2fr 2fr 0.5fr 1fr 1fr;
     padding: 1em 0;
+    gap: 1em;
+}
+
+.card > * {
+    align-self: center;
 }
 
 #newBook-form-container {
@@ -32,7 +38,16 @@ body {
     grid-template-columns: repeat(5, 1fr);
 }
 
+.read-btn,
 .remove-btn {
-    width: 6em;
+    width: auto;
     height: 2em;
+}
+
+.read {
+    background-color: #c9f9bc;
+}
+
+.notRead {
+    background-color: #f9bcbc;
 }

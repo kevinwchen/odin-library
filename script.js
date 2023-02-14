@@ -30,13 +30,29 @@ function displayBooks() {
     for (let i = 0; i < myLibrary.length; i++) {
         let card = document.createElement("div");
         card.classList.add("card");
-        for (let j = 0; j < keys.length; j++) {
+        for (let j = 0; j < keys.length - 1; j++) {
             let prop = keys[j];
             let cardProp = document.createElement("div");
             cardProp.classList.add(prop);
             cardProp.innerText = myLibrary[i][prop];
             card.appendChild(cardProp); // Add card property div to card
         }
+
+        let readButton = document.createElement("button");
+        readButton.innerText = myLibrary[i].read;
+        readButton.setAttribute("class", "read-btn");
+
+        if (readButton.innerText == "read") {
+            readButton.classList.add("read");
+        } else {
+            readButton.classList.add("notRead");
+        }
+
+        readButton.addEventListener("click", (event) => {
+            readToggle(readButton);
+            myLibrary[i].read = readButton.innerText;
+        });
+        card.appendChild(readButton);
 
         let removeButton = document.createElement("button");
         removeButton.innerText = "remove";
@@ -46,10 +62,21 @@ function displayBooks() {
             myLibrary.splice(i, 1);
             displayBooks();
         });
-
         card.appendChild(removeButton);
 
         library.appendChild(card); // Add card div to library
+    }
+}
+
+function readToggle(readButton) {
+    if (readButton.innerText == "read") {
+        readButton.innerText = "not read yet";
+        readButton.classList.remove("read");
+        readButton.classList.add("notRead");
+    } else {
+        readButton.innerText = "read";
+        readButton.classList.remove("notRead");
+        readButton.classList.add("read");
     }
 }
 
