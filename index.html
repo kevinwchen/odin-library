@@ -10,9 +10,7 @@
     </head>
     <body>
         <div class="header">Odin Library</div>
-        <div class="main">
-            <div id="library"></div>
-        </div>
+        <div id="library"></div>
         <div id="newBook-button">
             <button class="openBookForm" onclick="openBookForm()">
                 New Book
@@ -41,13 +39,17 @@
                     placeholder="Pages"
                     required
                 />
-                <input
+                <!-- <input
                     type="text"
                     name="newBook-read"
                     id="newBook-read"
                     placeholder="Read Status"
                     required
-                />
+                /> -->
+                <select name="newBook-read" id="newBook-read" required>
+                    <option value="not read yet">not read yet</option>
+                    <option value="read">read</option>
+                </select>
                 <button class="addBook-button">Add New Book</button>
             </form>
         </div>

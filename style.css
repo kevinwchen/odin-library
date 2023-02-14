@@ -15,12 +15,12 @@ body {
 
 #library {
     display: grid;
-    gap: 0.5em;
 }
 
 .card {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+    padding: 1em 0;
 }
 
 #newBook-form-container {
@@ -30,4 +30,9 @@ body {
 .newBook-form {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
+}
+
+.remove-btn {
+    width: 6em;
+    height: 2em;
 }
