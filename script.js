@@ -8,7 +8,7 @@ class Book {
         this.pages = pages;
         this.read = read;
     }
-    
+
     info() {
         return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
     }
@@ -20,7 +20,7 @@ function addBookToLibrary() {
     const author = document.getElementById("newBook-author").value;
     const pages = document.getElementById("newBook-pages").value;
     const read = document.getElementById("newBook-read").value;
-    newBook = new Book(title, author, pages, read);
+    const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
     // Show new book button and hide form
     document.getElementById("newBook-button").style.display = "block";
