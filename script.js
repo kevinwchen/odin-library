@@ -1,14 +1,17 @@
 let myLibrary = [];
 const keys = ["title", "author", "pages", "read"];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = () => {
-        return `${title} by ${author}, ${pages} pages, ${read}`;
-    };
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+    }
 }
 
 function addBookToLibrary() {
@@ -104,14 +107,19 @@ addBookButton.addEventListener("click", (event) => {
 });
 
 // Add initial sample books
-theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", "295", "read");
-briefHistory = new Book(
+const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", "295", "read");
+const briefHistory = new Book(
     "A Brief History of Time",
     "Stephen Hawking",
     "256",
     "read"
 );
-atomicHabits = new Book("Atomic Habits", "James Clear", "320", "not read yet");
+const atomicHabits = new Book(
+    "Atomic Habits",
+    "James Clear",
+    "320",
+    "not read yet"
+);
 
 myLibrary.push(theHobbit);
 myLibrary.push(briefHistory);
